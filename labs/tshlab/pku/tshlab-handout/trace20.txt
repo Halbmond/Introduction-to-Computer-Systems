@@ -1,0 +1,20 @@
+#
+# trace20.txt - Forward SIGTSTP to every process in foreground process group
+#
+/bin/echo -e tsh\076 ./mysplit 10
+NEXT
+./mysplit 10 
+WAIT
+
+SIGTSTP
+NEXT
+
+/bin/echo -e tsh\076 /bin/sh -c \047/bin/ps h | /bin/fgrep -v grep | /bin/fgrep mysplit | /usr/bin/expand | /usr/bin/colrm 1 15 | /usr/bin/colrm 2 11\047
+NEXT
+/bin/sh -c '/bin/ps h | /bin/fgrep -v grep | /bin/fgrep mysplit | /usr/bin/expand | /usr/bin/colrm 1 15 | /usr/bin/colrm 2 11'
+NEXT
+
+quit
+
+
+

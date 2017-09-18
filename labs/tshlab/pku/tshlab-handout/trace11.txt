@@ -1,0 +1,11 @@
+#
+# trace11.txt - Child sends SIGINT to itself
+#
+/bin/echo -e tsh\076 ./myints
+NEXT
+./myints
+NEXT
+
+/bin/echo -e tsh\076 quit
+NEXT
+quit

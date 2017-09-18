@@ -1,0 +1,14 @@
+#
+# trace09.txt - Send SIGTSTP to foreground job.
+#
+/bin/echo -e tsh\076 ./mytstpp
+NEXT
+./mytstpp
+NEXT
+
+/bin/echo -e tsh\076 jobs
+NEXT
+jobs
+NEXT
+
+quit

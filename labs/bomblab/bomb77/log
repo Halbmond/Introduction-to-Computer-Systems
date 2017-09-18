@@ -1,0 +1,76 @@
+(gdb) x/s 0x402840
+0x402840:	"e never been better."
+
+
+
+(gdb) x/8xw 0x402890
+0x402890:	0x00401072	0x00000000	0x004010af	0x00000000
+0x4028a0:	0x00401079	0x00000000	0x00401080	0x00000000
+(gdb) x/8xw 0x402898
+0x402898:	0x004010af	0x00000000	0x00401079	0x00000000
+0x4028a8:	0x00401080	0x00000000	0x00401087	0x00000000
+(gdb) 
+
+
+(gdb) x/8xw 4028d0
+Invalid number "4028d0".
+(gdb) x/8xw 0x4028d0
+0x4028d0 <array.3603>:	0x7564616d	0x73726569	0x746f666e	0x6c796276
+0x4028e0:	0x79206f53	0x7420756f	0x6b6e6968	0x756f7920
+(gdb) x/s 0x40287e
+0x40287e:	"devils"
+(gdb) x/s 0x4028d0
+0x4028d0 <array.3603>:	"maduiersnfotvbylSo you think you can stop the bomb with ctrl-c, do you?"
+(gdb) x/s 0x402820
+0x402820:	"Border relations with Canada have never been better."
+(gdb) 
+
+
+
+
+(gdb) call func4(0,0,14)
+$1 = 11
+(gdb) call func4(1,0,14)
+$2 = 11
+(gdb) call func4(2,0,14)
+$3 = 13
+(gdb) call func4(3,0,14)
+$4 = 10
+(gdb) call func4(4,0,14)
+$5 = 19
+(gdb) call func4(5,0,14)
+$6 = 15
+(gdb) call func4(6,0,14)
+$7 = 21
+(gdb) call func4(7,0,14)
+$8 = 7
+(gdb) call func4(8,0,14)
+$9 = 35
+(gdb) call func4(9,0,14)
+$10 = 27
+(gdb) call func4(10,0,14)
+$11 = 37
+(gdb) call func4(11,0,14)
+$12 = 18
+(gdb) call func4(12,0,14)
+$13 = 43
+(gdb) call func4(13,0,14)
+$14 = 31
+(gdb) call func4(14,0,14)
+$15 = 45
+(gdb) call func4(15,0,14)
+$16 = 60
+(gdb) call func4(16,0,14)
+
+
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000401101 in func4 ()
+The program being debugged was signaled while in a function called from GDB.
+GDB remains in the frame where the signal was received.
+To change this behavior use "set unwindonsignal on".
+Evaluation of the expression containing the function
+(func4) will be abandoned.
+When the function is done executing, GDB will silently stop.
+(gdb) 
+

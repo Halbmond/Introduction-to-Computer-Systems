@@ -1,0 +1,10 @@
+#
+# trace02.txt - Run a foreground job that prints an environment variable
+#
+# IMPORTANT: You must pass this trace before attempting any later
+# traces.  In order to synchronize with your child jobs, the driver
+# relies on your shell properly setting the environment.
+
+./myenv
+NEXT
+

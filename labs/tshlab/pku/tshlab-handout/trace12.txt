@@ -1,0 +1,14 @@
+#
+# trace12.txt - Child sends SIGTSTP to itself
+#
+/bin/echo -e tsh\076 ./mytstps
+NEXT
+./mytstps
+NEXT
+
+/bin/echo -e tsh\076 jobs
+NEXT
+jobs
+NEXT
+
+quit

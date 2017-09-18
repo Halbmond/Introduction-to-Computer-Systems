@@ -1,0 +1,19 @@
+#
+# trace15.txt - Process bg builtin command (one job)
+#
+/bin/echo -e tsh\076 ./mytstpp
+NEXT
+./mytstpp
+NEXT
+
+/bin/echo -e tsh\076 bg %1
+NEXT
+bg %1
+NEXT
+
+/bin/echo -e tsh\076 jobs
+NEXT
+jobs
+NEXT
+
+quit

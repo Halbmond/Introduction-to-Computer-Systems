@@ -1,0 +1,3 @@
+mov 0x804d100, %eax
+mov %eax, 0x804d108
+jmp *0x8048c9d

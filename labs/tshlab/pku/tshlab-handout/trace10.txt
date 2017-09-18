@@ -1,0 +1,23 @@
+#
+# trace10.txt - Send fatal SIGTERM (15) to a background job.
+#
+/bin/echo -e tsh\076 ./myspin1 5 \046
+NEXT
+./myspin1 5 &
+NEXT
+
+WAIT
+
+/bin/echo -e tsh\076 /usr/bin/pkill myspin1
+NEXT
+/usr/bin/pkill myspin1
+NEXT
+
+SIGNAL
+SIGNAL
+WAIT
+
+/bin/echo -e Child took SIGTERM
+NEXT
+
+quit

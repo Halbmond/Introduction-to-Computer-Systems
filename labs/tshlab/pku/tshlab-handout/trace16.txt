@@ -1,0 +1,34 @@
+#
+# trace16.txt - Process bg builtin command (two jobs)
+#
+
+/bin/echo -e tsh\076 ./myspin1 10 \046
+NEXT
+./myspin1 10 &
+NEXT
+WAIT
+
+/bin/echo -e tsh\076 ./mytstpp
+NEXT
+./mytstpp
+NEXT
+
+/bin/echo -e tsh\076 jobs
+NEXT
+jobs
+NEXT
+
+
+/bin/echo -e tsh\076 bg %2
+NEXT
+bg %2
+NEXT
+
+/bin/echo -e tsh\076 jobs
+NEXT
+jobs
+NEXT
+
+SIGNAL 
+
+quit

@@ -1,0 +1,38 @@
+$ ./tiny 8000
+Accepted connection from (localhost, 40734)
+GET / HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+Response headers:
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 120
+Content-type: text/html
+
+Accepted connection from (localhost, 40736)
+GET /godzilla.gif HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://localhost:8000/
+Connection: keep-alive
+
+Response headers:
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 12155
+Content-type: image/gif
+
+Accepted connection from (localhost, 40816)
+GET /godzilla.gif HTTP/1.1
+

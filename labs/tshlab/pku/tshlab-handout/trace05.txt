@@ -1,0 +1,14 @@
+#
+# trace05.txt - Run a background job.
+#
+/bin/echo -e tsh\076 ./myspin1 \046
+NEXT
+./myspin1 &
+NEXT
+
+WAIT
+SIGNAL
+
+/bin/echo -e tsh\076 quit
+NEXT
+quit

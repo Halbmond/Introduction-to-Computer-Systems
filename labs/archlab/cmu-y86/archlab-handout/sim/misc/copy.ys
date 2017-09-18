@@ -1,0 +1,56 @@
+# Name: Tiankui Guo
+# ID: 1300012790@pku.edu.cn
+
+	.pos 0
+init:
+	irmovl	Stack, %esp
+	irmovl	Stack, %ebp
+	irmovl	$12, %eax
+	subl	%eax, %esp
+	irmovl	src, %eax
+	rmmovl	%eax, (%esp)
+	irmovl	dest, %eax
+	rmmovl	%eax, 4(%esp)
+	irmovl	$3, %eax
+	rmmovl	%eax, 8(%esp)
+	call	copy_block
+	halt
+
+copy_block:
+	pushl	%esi
+	pushl	%ebx
+	mrmovl	12(%esp), %ecx
+	mrmovl	16(%esp), %ebx
+	mrmovl	20(%esp), %edx
+	irmovl	$0, %eax
+	andl	%edx, %edx
+	jle	End
+Loop:
+	irmovl	$4, %edi
+	addl	%edi, %ecx
+	mrmovl	-4(%ecx), %esi
+	addl	%edi, %ebx
+	rmmovl	%esi, -4(%ebx)
+	xorl	%esi, %eax
+	irmovl	$1, %edi
+	subl	%edi, %edx
+	jne	Loop
+End:
+	popl	%ebx
+	popl	%esi
+	ret
+
+	.align 4
+# Source block
+src:
+	.long 0x00a
+	.long 0x0b0
+	.long 0xc00
+# Destination block
+dest:
+	.long 0x111
+	.long 0x222
+	.long 0x333
+
+	.pos 0x100
+Stack:

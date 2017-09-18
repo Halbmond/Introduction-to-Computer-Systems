@@ -1,0 +1,19 @@
+#
+# trace06.txt - Run a foreground job and a background job.
+#
+/bin/echo -e tsh\076 ./myspin1 \046
+NEXT
+./myspin1 &
+NEXT
+
+/bin/echo -e tsh\076 ./myspin2 1
+NEXT
+./myspin2 1
+
+WAIT
+WAIT
+SIGNAL
+SIGNAL
+NEXT
+
+quit

@@ -1,0 +1,7 @@
+#
+# trace04.txt - Run a foreground job with arguments.
+#
+/bin/echo -e tsh\076 quit
+NEXT
+quit
+

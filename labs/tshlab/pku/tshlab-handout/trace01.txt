@@ -1,0 +1,5 @@
+#
+# trace01.txt - Process builtin quit command.
+#
+quit
+

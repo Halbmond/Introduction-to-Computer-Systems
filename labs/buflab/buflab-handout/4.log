@@ -1,0 +1,57 @@
+(gdb) b testn
+Breakpoint 1 at 0x8048e2a
+(gdb) r
+Starting program: /media/ice/LENOVO/Libraries/Course/Introduction-to-Computer-Systems/lab/buflab/cmu/buflab-handout/bufbomb 
+/media/ice/LENOVO/Libraries/Course/Introduction-to-Computer-Systems/lab/buflab/cmu/buflab-handout/bufbomb: Missing required argument (-u <userid)
+Usage: /media/ice/LENOVO/Libraries/Course/Introduction-to-Computer-Systems/lab/buflab/cmu/buflab-handout/bufbomb -u <userid> [-nsh]
+  -u <userid> User ID
+  -n          Nitro mode
+  -s          Submit your solution to the grading server
+  -h          Print help information
+[Inferior 1 (process 6993) exited normally]
+(gdb) r -n -u colrko < raw.txt
+Starting program: /media/ice/LENOVO/Libraries/Course/Introduction-to-Computer-Systems/lab/buflab/cmu/buflab-handout/bufbomb -n -u colrko < raw.txt
+Userid: colrko
+Cookie: 0x12e4a2b7
+
+Breakpoint 1, 0x08048e2a in testn ()
+(gdb) p/x $ebp
+$1 = 0x55683cb0
+(gdb) c
+Continuing.
+Type string:Dud: getbufn returned 0x1
+Better luck next time
+
+Breakpoint 1, 0x08048e2a in testn ()
+(gdb) p/x $ebp
+$2 = 0x55683cc0
+(gdb) c
+Continuing.
+Type string:Dud: getbufn returned 0x1
+Better luck next time
+
+Breakpoint 1, 0x08048e2a in testn ()
+(gdb) p/x $ebp
+$3 = 0x55683c50
+(gdb) c
+Continuing.
+Type string:Dud: getbufn returned 0x1
+Better luck next time
+
+Breakpoint 1, 0x08048e2a in testn ()
+(gdb) p/x $ebp
+$4 = 0x55683cb0
+(gdb) c
+Continuing.
+Type string:Dud: getbufn returned 0x1
+Better luck next time
+
+Breakpoint 1, 0x08048e2a in testn ()
+(gdb) p/x $ebp
+$5 = 0x55683d00
+(gdb) c
+Continuing.
+Type string:Dud: getbufn returned 0x1
+Better luck next time
+[Inferior 1 (process 6997) exited normally]
+

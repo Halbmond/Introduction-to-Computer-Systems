@@ -1,0 +1,12 @@
+#
+# trace22.txt - I/O redirection (input)
+#
+/bin/echo -e tsh\076 ./mycat \074 mycat.c
+NEXT
+./mycat < mycat.c
+NEXT
+
+quit
+
+
+

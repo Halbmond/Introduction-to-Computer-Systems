@@ -1,0 +1,47 @@
+# Name: Tiankui Guo
+# ID: 1300012790@pku.edu.cn
+
+	.pos 0
+init:
+	irmovl	Stack, %esp
+	irmovl	Stack, %ebp
+	irmovl	$4, %eax
+	subl	%eax, %esp
+	irmovl	ele1, %eax
+	rmmovl	%eax, (%esp)
+	call	rsum_list
+	halt
+
+rsum_list:
+	pushl	%ebx
+	irmovl	$4, %ebx
+	subl	%ebx, %esp
+	mrmovl	12(%esp), %ebx
+	irmovl	$0, %eax
+	andl	%ebx, %ebx
+	je	End
+	mrmovl	4(%ebx), %eax
+	rmmovl	%eax, (%esp)
+	call	rsum_list
+	mrmovl	(%ebx), %ebx
+	addl	%ebx, %eax
+End:
+	irmovl	$4, %ebx
+	addl	%ebx, %esp
+	popl	%ebx
+	ret
+
+# Sample linked list
+	.align 4
+ele1:
+	.long 0x00a
+	.long ele2
+ele2:
+	.long 0x0b0
+	.long ele3
+ele3:
+	.long 0xc00
+	.long 0
+
+	.pos 0x100
+Stack:

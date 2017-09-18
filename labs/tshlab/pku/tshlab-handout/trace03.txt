@@ -1,0 +1,10 @@
+#
+# trace03.txt - Run a synchronizing foreground job without any arguments.
+#
+./myspin1
+
+WAIT
+SIGNAL
+
+quit
+
