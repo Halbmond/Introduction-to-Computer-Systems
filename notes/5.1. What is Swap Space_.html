@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>5.1. What is Swap Space?</title>
+    <link rel="stylesheet" href="./Common_Content/css/default.css" type="text/css" />
+    <link rel="start" href="index.html" title="Red Hat Enterprise Linux" />
+    <link rel="up" href="ch-swapspace.html" title="Chapter 5. Swap Space" />
+    <link rel="prev" href="ch-swapspace.html" title="Chapter 5. Swap Space" />
+    <link rel="next" href="s1-swap-adding.html" title="5.2. Adding Swap Space" />
+    <link rel="copyright" href="ln-id2973331.html" title="Legal Notice" />
+  </head>
+  <body>
+    <p id="title">
+      
+        <strong>5.1. What is Swap Space?</strong>
+      </a>
+    </p>
+    <ul class="docnav">
+      <li class="previous">
+        <a accesskey="p" href="ch-swapspace.html">
+          <strong>Prev</strong>
+        </a>
+      </li>
+      <li class="next">
+        <a accesskey="n" href="s1-swap-adding.html">
+          <strong>Next</strong>
+        </a>
+      </li>
+    </ul>
+    <div class="section" lang="en-US" xml:lang="en-US">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="s1-swap-what-is"></a>5.1. What is Swap Space?</h2>
+          </div>
+        </div>
+      </div>
+      <a id="id2905120" class="indexterm"></a>
+      <p>
+			<em class="firstterm">Swap space</em> in Linux is used when the amount of physical memory (RAM) is full. If the system needs more memory resources and the RAM is full, inactive pages in memory are moved to the swap space. While swap space can help machines with a small amount of RAM, it should not be considered a replacement for more RAM. Swap space is located on hard drives, which have a slower access time than physical memory.
+		</p>
+      <p>
+			Swap space can be a dedicated swap partition (recommended), a swap file, or a combination of swap partitions and swap files.
+		</p>
+      <a id="id2893882" class="indexterm"></a>
+      <p>
+			Swap should equal 2x physical RAM for up to 2 GB of physical RAM, and then an additional 1x physical RAM for any amount above 2 GB, but never less than 32 MB.
+		</p>
+      <p>
+			So, if:
+		</p>
+      <p>
+			M = Amount of RAM in GB, and S = Amount of swap in GB, then
+		</p>
+      <pre class="screen">If M &lt; 2
+	S = M *2
+Else
+	S = M + 2
+</pre>
+      <p>
+			Using this formula, a system with 2 GB of physical RAM would have 4 GB of swap, while one with 3 GB of physical RAM would have 5 GB of swap. Creating a large swap space partition can be especially helpful if you plan to upgrade your RAM at a later time.
+		</p>
+      <p>
+			For systems with really large amounts of RAM (more than 32 GB) you can likely get away with a smaller swap partition (around 1x, or less, of physical RAM).
+		</p>
+      <div class="important">
+        <h2>Important</h2>
+        <p>
+				File systems and LVM2 volumes assigned as swap space <span class="emphasis"><em>cannot</em></span> be in use when being modified. For example, no system processes can be assigned the swap space, as well as no amount of swap should be allocated and used by the kernel. Use the <code class="command">free</code> and <code class="command">cat /proc/swaps</code> commands to verify how much and where swap is in use.
+			</p>
+        <p>
+				The best way to achieve swap space modifications is to boot your system in rescue mode, and then follow the instructions (for each scenario) in the remainder of this chapter. Refer to the Red Hat Enterprise Linux Installation Guide for instructions on booting into rescue mode. When prompted to mount the file system, select <span><strong class="guibutton">Skip</strong></span>.
+			</p>
+      </div>
+    </div>
+    <ul class="docnav">
+      <li class="previous">
+        <a accesskey="p" href="ch-swapspace.html"><strong>Prev</strong>Chapter 5. Swap Space</a>
+      </li>
+      <li class="up">
+        <a accesskey="u" href="#">
+          <strong>Up</strong>
+        </a>
+      </li>
+      <li class="home">
+        <a accesskey="h" href="index.html">
+          <strong>Home</strong>
+        </a>
+      </li>
+      <li class="next">
+        <a accesskey="n" href="s1-swap-adding.html"><strong>Next</strong>5.2. Adding Swap Space</a>
+      </li>
+    </ul>
+  <br><font size="1"><b>Note:</b> This documentation is provided {and copyrighted} by <b>Red Hat®, Inc.</b> and is released via the Open Publication License. The copyright holder has added the further requirement that <i>Distribution of substantively modified versions of this document is prohibited without the explicit permission of the copyright holder</i>. The <b>CentOS project</b> redistributes these original works (in their unmodified form) as a reference for <b>CentOS-5</b> because <b>CentOS-5</b> is built from publicly available, open source SRPMS. The documentation is unmodified to be compliant with upstream distribution policy. Neither <b>CentOS-5</b> nor the <b>CentOS Project</b> are in any way affiliated with or sponsored by <b>Red Hat®, Inc.</b></font></body>
+</html>

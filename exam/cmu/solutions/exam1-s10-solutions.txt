@@ -1,0 +1,145 @@
+Solution Key to 15213-s10 Exam 1 
+
+Problem 1.
+Part 1: c
+Part 2: a
+Part 3: a,b,c
+Part 4: a
+Part 5: a
+Part 6: b
+Part 7: d
+
+-------------------------------------------------------------------------------
+Problem 2.
+
+Part 1:
+int mystery(int i)
+{
+  if ( i!= 0 ) return i + mystery(i-1);
+     return i;
+}
+
+Part 2: 
+cmp $0x0, %eax
+
+Part 3: 
+There is a jump to line 0x8048364 so 0x8048361 is not actually
+executed everytime 0x8048364 is.
+
+
+Problem 3.
+
+Part 1:
+0xffd3d208
+
+Part 2: 
+0x080483cd
+
+Part 3 (table):
+
+arg1: 0xffd3d1f0 15
+arg2: 0xffd3d1f4 7/64
+arg3: 0xffd3d1f8 NaN
+arg4: 0xffd3d1fc 2^(-149)
+
+-------------------------------------------------------------------------------
+Problem 4:
+
+Part 1:
+Key:
+ _ unshaded 
+ = shaded
+
+bb==xxxx
+ss==zzzz
+ccccc===
+aaaaaaaa
+q===____
+
+
+Part 2:
+ms.b = 0x00bb
+ms.x = 0x0001d9f9
+ms.s = 0x3b6d
+ms.z = 0xbeefbabe
+ms.c = 0x68, 0x6c, 0x70, 0x6d, 0x65
+ms.a = 0xdeafelffledfable
+ms.q = 0x21
+
+Part 3:
+(many possible solutions)
+One example:
+
+struct my_compressed_struct {
+  long long a; 
+  long z;
+  int x;
+  short b;
+  short s;
+  char[5] c;
+  char q;
+}
+
+Part 4: 
+Depends on previous solution.
+
+From our example above:
+aaaaaaaa
+xxxxzzzz
+bbsscccc
+cq==____
+
+size = 28
+
+-------------------------------------------------------------------------------
+Problem 5:
+
+
+c
+b
+a
+ret Addr to caller
+old ebp
+eax (c)
+ecx (b)
+edx (a)
+0xde
+old ebp
+eax (c)
+ecx (b)
+edx (a)
+0xde
+old ebp <- %ebp
+blank
+blank
+black <- %esp
+
+-------------------------------------------------------------------------------
+Problem 6:
+ 
+Step 0: User coulde enter a string long enough to overflow the buffer
+and overwrite mains return address to the address of the exploit. 
+
+Step 1:
+ Part 1: 0xf7e263a0
+ Part 2: 0xff89d95d
+
+Step 2:
+
+garbage | old ebp | system addr | 4 byte garbage | /bin/bash addr
+
+Step 3:
+
+Main will return to the system function with the argument
+"/bin/bash". This will open a new shell for the attacker to input
+commands.
+
+-------------------------------------------------------------------------------
+Problem 7:
+
+void mystery(int (*funcP) (int), int a[], int n) {
+     int q;
+     for (q = 0; q < n; q++) {
+	 a[q] = funcP(a[q]);
+     }
+}

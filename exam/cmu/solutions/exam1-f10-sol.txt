@@ -1,0 +1,99 @@
+Exam 1 Solutions
+15-213 / 18-243 Fall 2010
+
+*********
+Problem 1
+*********
+1-b 2-a 3-c 4-b 5-a 6-d 7-b 8-a 9-a 10-a    
+11-b 12-a 
+13-IA32: 1, 4, 4, 4 x86-64: 1, 4, 8, 8 
+14-a 15-a 16-a 17-a 18-a 19-elided (ambiguous) 20-a
+
+
+
+### 5. In two’s compliment, what is the minimum number of bits needed to represent the numbers -1 and the
+number 1 respectively?
+
+* (a) 1 and 2
+* (b) 2 and 2
+* (c) 2 and 1
+* (d) 1 and 1
+
+
+### 11. A buffer overflow attack can only be executed against programs that use the gets function.
+* (a) True
+* (b) False
+
+*********
+Problem 2
+*********
+Value	FP bits	Rounded value
+  1       011 00    1      easy normalized, exact (1 pt)
+  12      110 10    12     normalized exact (1 pt)
+  11      110 10    12     round up to 12 (because 10 is odd) (1 pt)
+  1/8     000 10    1/8    denorm, exact (2 pt)
+  7/32    001 00    1/4    straddles norm/denorm boundary, round up 
+
+*********
+Problem 3
+*********
+Version A: H = 15 J = 3 
+Version B: H = 5  J = 7
+
+*********
+Problem 4
+*********
+Part A:
+abccddddeeeefXXX
+gggg
+
+
+Part B:
+There are multiple correct answers. In general, put
+the largest data items first. E.g., 
+
+ddddeeeeffffccab
+fXXX
+
+*********
+Problem 5
+*********
+A. Clyde
+B. Inky
+C. Pinky
+D. Blinky
+
+*********
+Problem 6
+*********
+Cases 210, 214, and 218 should have "break".
+
+0x400590: 0x400470
+0x400598: 0x40048a
+0x4005a0: 0x40048a
+0x4005a8: 0x400477
+0x4005b0: 0x40047c
+0x4005b8: 0x40048a
+0x4005c0: 0x400482
+0x4005c8: 0x40048a
+0x4005d0: 0x400482
+0x4005d8: 0x400487
+
+*********
+Problem 7
+*********
+A. (a) Call pushes the return address on the stack, jmp does not. 
+   (b) Ret gets the return address from the top of the stack. 
+B. x == 5
+C. string "0123456" is stored at 0x80484d0
+D. buf[0] = 0x33323130
+   buf[1] = 0x00363534
+   buf[2] = 0xffffd3e8
+   buf[3] = 0x080483fc
+   buf[4] = 0x080484d0
+E. Value at %ebp is 0xffffd3e8
+F. Value at %esp is 0x080483fc 
+G. No segfault. "0123456" is only 8 bytes including '\0', and 
+   int[2] can store 8 bytes.
+
+

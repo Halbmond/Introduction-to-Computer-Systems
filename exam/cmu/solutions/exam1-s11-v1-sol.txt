@@ -1,0 +1,182 @@
+Exam 1 Version 1 Solutions
+CS 213 Spring 2011
+
+*********
+Problem 1
+*********
+
+1. c 
+2. b
+3. d 
+4. b
+5. c
+6. b
+7. d
+8. c
+9. b
+10. a
+11. a
+12. T
+
+
+### 6. Two-dimensional arrays are stored in order, to help with cache performance.
+* (a) column-major
+* (b) row-major
+* (c) diagonal-major
+* (d) Art-major
+
+
+*********
+Problem 2
+*********
+
+A.
+   67 = 0100 0011
+  -35 = 1101 1101
+
+B.
+   /*
+    * reverseBytes - reverse bytes
+    *   Example: reverseBytes(0x12345678) = 0x78563412
+    *   Legal ops: ! ~ & ^ | + << >>
+    */
+    int reverseBytes(int x)
+    {
+        int newbyte0 = (x >> 24) & 0xff;
+        int newbyte1 = (x >> 8) & 0xff00;
+        int newbyte2 = (x << 8) & 0xff0000;
+        int newbyte3 = x << 24;
+
+        return newbyte0 | newbyte1 | newbyte2 | newbyte3;
+    }
+    
+C.
+  x = y = 0
+  None
+  x = 0
+  None
+  x = 0, y = 1
+
+
+*********
+Problem 3
+*********
+
+A.
+  3
+
+B.
+  15
+
+C.
+  1/32
+
+D.
+  Bits         Value      Bits          Value
+  
+  011 000      1          101 010       5
+  111 000      17         111 010       NaN
+  110 001      9          000 011       3/32
+  110 010      9 1/2      110 000       8 1/2
+
+
+*********
+Problem 4
+*********
+
+A.
+  Note: The correct alignment of 16-byte types on 64-bit Linux is 16 bytes.
+  Since the cheat sheet we handed out gave incorrect information, we accepted
+  solutions assuming 8-byte alignment also.
+  
+  aaaXbbbbbbXXXXXX
+  ccccccccXXXXXXXX
+  dddddddddddddddd
+  eeeeeeeeffffXXXX
+
+B.
+  dddddddddddddddd
+  cccccccceeeeeeee
+  ffffbbbbbbaaaXXX
+
+C.
+  19
+
+D.
+  3
+
+
+*********
+Problem 5
+*********
+
+int lolwut(char *s)
+{
+    int i, n;
+
+    n = 0;
+
+    for(i = 0; s[i] != '\0'; i++)
+    {
+        if(s[i] < '0' || s[i] > '9')
+        {
+            return -1;
+        }
+        n = n*10 + s[i] - '0';
+    }
+    return n;
+}
+
+A.
+  The instruction places the value of %ebx onto the stack, and it decrements 
+  %esp.  %ebx is a callee-saved register; since lolwut uses %ebx, its value 
+  upon invocation must be saved so it can be restored before returning to the 
+  caller.
+
+B.
+  0xffff000c
+
+
+*********
+Problem 6
+*********
+
+        -----------
+0x1000  |    d    | <- Start argument build area here
+        |    c    |
+        |    b    |
+        |    a    |
+        | ret addr|
+ ebp -> |   %ebp  |
+        |   %ebx  |
+        |         |
+        |         |
+        |         |
+ esp -> |         |
+
+
+*********
+Problem 7
+*********
+
+A.
+  m m m m m m m m
+  m m m m m m m m
+  m m m m m m m m
+  m m m m m m m m
+
+  Miss rate = 1
+
+B.  
+  m h h h h h h h
+  m h h h h h h h
+  m h h h h h h h
+  m h h h h h h h
+
+  Miss rate = 1/8
+
+C.
+  The second sample performs better than the first because it makes better use
+  of the cache.  In the first, heavy conflict results in a large number of
+  evictions.  In the second, the entire array fits in the cache, and the only
+  misses are cold misses.

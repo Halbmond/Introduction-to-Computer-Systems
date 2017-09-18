@@ -1,0 +1,81 @@
+Exam 2 Solutions
+15-213 Fall 2010
+
+*********
+Problem 1
+*********
+1-b 2-d 3-b 4-c 5-d 
+6-e 7-b 8-b 9-a 10-c    
+
+*********
+Problem 2
+*********
+a=1 b=5 c=3
+
+*********
+Problem 3
+*********
+1. Cache size is 16 bytes
+2. Tag is 4 bits
+
+Index  hit/miss	eviction
+0      miss	no
+1      miss	no
+2      miss	no
+0      miss	yes
+1      miss	yes
+1      miss	yes
+2      miss	yes
+0      miss	yes
+2      hit	no
+
+*********
+Problem 4
+*********
+1. 0, 1, 50, 100
+2. 0, 100
+3. 100
+
+In all three cases a SIGINT can be received before the SIGINT handler
+is installed, in which case the program terminates without printing
+anything. So we also accepted "None of the above" as a possible
+outcome.
+
+*********
+Problem 5
+*********
+Part 1.
+A. N
+B. N
+C. Y
+D. N
+E. N
+
+Note: The possible solutions are the sequence "5030" with a 9 inserted
+anywhere.
+
+Part 2.
+Parent: i=10
+Child: i=20
+
+*********
+Problem 6
+*********
+1. Read from virtual address 0x080016ba:
+a. Address of PDE: 0xc23b080
+b. Address of PTE: 0x55004
+c. Success: Address accessed is 0x8974d6ba
+
+2. Read from virtual address 0x9fd28c10:
+a. Address of PDE: 0xc23b9fc
+`b. blank
+c. Failure: Address of table entry causing failure is 0xc23b9fc
+
+*********
+Problem 7
+*********
+
+Program 1: "file"
+Program 2: "dededsc"
+
+

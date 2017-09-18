@@ -1,0 +1,171 @@
+<HTML>
+<TITLE>
+Understanding the PC and the IR
+</TITLE>
+<BODY bgcolor=white>
+<CENTER>
+<H1>
+Understanding the PC and the IR
+</H1>
+</CENTER>
+<BODY bgcolor=white>
+
+&copy; 2003 by Charles C. Lin.   All rights reserved.
+
+<DL>
+
+<DT>
+<H3>
+PC and IR
+</H3>
+</DT>
+<DD>
+    Two important hidden registers are the <B>PC</B>, which is short for
+the <B>program counter</B> and <B>IR</B>, which is short for the instruction
+register.
+<H4>
+PC, the Program Counter
+</H4>
+   PC is a 32-bit hidden register.
+<P>
+   The PC is a poor description for what a PC does.  It does not count
+programs, and is not really a counter at all.  The PC holds the
+<I>address</I> of the current instruction being executed.  At times,
+the PC may hold the address plus 4, attempting to anticipate the
+"next" instruction to be executed.
+<P>
+   Recall that, in MIPS, instructions are 4 bytes long and thus use
+up 4 consecutive memory locations.   Since instructions are words, they
+must be stored at word-aligned addresses, i.e., at addresses divisible
+by 4.
+<P>
+   If you inspect the low two bits of the PC (i.e., <B>PC<sub>1..0</sub></B>),
+you'd notice that they always end in 00.
+<P>
+   Unless a branch or jump occurs, PC is updated to PC + 4, the address
+of the next instruction in memory.   Notice that the next instruction
+in memory is <I>not</I> the same as the next instruction to be executed.
+It's possible for the next instruction to be executed to be some other
+instruction besides PC + 4.
+
+<H4>
+IR, the Instruction Register
+</H4>   
+   IR is a 32-bit hidden register.
+<P>
+   At least, IR has a reasonable name.  This register actually stores
+an instruction.   In particular, it stores the instruction given by PC.
+<P>
+   By storing an instruction in a register, we can use the output of
+the register to control other parts of the CPU, so the instruction can
+be executed.
+</DD>
+
+<DT>
+<H3>
+How PC and IR are used in conjunction with MAR and MDR
+</H3>
+</DT>
+<DD>
+   Usually, PC holds the address of the current instruction.  However,
+once that instruction has completed, then PC is updated with a new value,
+for the next instruction.   At that point, IR still holds the old instruction,
+and we need to go get the new instruction.
+<P>
+   Where is this new instruction?  It's in memory.  We need to get that
+instruction out of memory, and bring it to the CPU where the CPU can
+execute it.
+<P>
+   To get the new PC to memory, we need to get its address to the address
+bus.  However, the only register we have that can access the address bus
+is the MAR.
+<P>
+   So, we need the datapath of the CPU to connect the output of the PC
+to the input of the MAR.  That's not too hard.  We simply attach a bus
+from the output of the PC to the input of the MAR, and we're done.
+<P>
+   What about the IR?   The IR contains a new instruction.  That
+instruction is going to be provided by memory, and placed onto the
+data bus.  The CPU then reads the instruction off the data bus
+and places it in the MDR.
+<P>
+    We need one of the outputs of the MDR to go the inputs of the IR.
+The other output is going to be used to store data into one of the
+user-visible registers.  However, we'll deal with that later.
+</DD>
+
+<DT>
+<H3>
+A Modified Diagram
+</H3>
+</DT>
+<DD>
+    We can now modify the diagram from the last set of notes to include
+the PC and the IR.
+<P>
+<CENTER>
+<IMG SRC="Figs/PC_IR/pc_ir.png">
+</CENTER>
+<P>
+   So <B>PC</B> feeds directly to <B>MAR</B>.  We'll need to add a MUX
+later on to the diagram, because the MAR can get its address from either
+the PC (when it needs to fetch an instruction from memory) or
+from some other location to be specified later (when it needs to
+fetch data from memory).
+<P>
+   The output of MDR goes to IR.  The input to MDR can either come from
+some place in the CPU (we just label it ???) to indicate this is data
+being sent to the data bus, or it can come from the data bus itself (when
+we're doing a load operation).
+<P>
+    One way to understand this diagram is to draw it out yourself,
+and see what you think as you draw it.  Sometimes, staring at a complicated
+diagram doesn't give you as much insight as drawing it.
+<P>
+   Also think about where the information has to flow when you
+are doing the following operations:
+<P>
+<UL type=disc>
+  <LI> Placing an instruction address from PC to MAR.
+  <LI> Placing an data address to MAR from someplace to be specified
+later (the diagram above doesn't allow you to do that--what needs to
+be changed?)
+  <LI> Loading data into the MDR from someplace to be specified later
+  <LI> Loading data into the MDR from the data bus
+  <LI> Sending the output of the MDR to the IR
+  <LI> Sending the output of the MDR to someplace to be specified later
+(the diagram above doesn't allow you to do that--what needs to
+be changed?)
+</UL>
+
+</DD>
+
+<DT>
+<H3>
+Summary
+</H3>
+</DT>
+<DD>
+   The PC is used to store the address of the current instruction.  However,
+as the program runs, the value of PC changes, and as it changes, we need
+to get the instruction associated with it from memory and put it in
+the IR.
+<P>
+    Both of these registers are 32-bits and both are "hidden".  That is,
+they are not directly accessible by the assembly language programmer.
+<P>
+    PC is not a particularly good name.  It fails to describe its
+purpose clearly, and can be confused for phrases "personal computer"
+and "political correctness".  Nevertheless, for historical reasons, we
+use the term PC to refer to the address of the instruction.
+<P>
+    PC and IR must interact with MAR and MDR because MAR and MDR are
+the registers that lie between the CPU and the data and address bus.
+Later on, we may decide to remove the MAR and/or the MAR for efficiency
+reasons.
+
+</DD>
+</DL>
+
+</BODY> 
+</HTML>

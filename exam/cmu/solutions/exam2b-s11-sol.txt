@@ -1,0 +1,122 @@
+Exam 1 Version 2 Solutions
+CS 213 Spring 2011
+
+*********
+Problem 1
+*********
+
+1. a
+2. d
+3. c
+4. a
+5. b
+6. a
+7. d
+8. b
+9. b
+10. a
+11. d
+12. b
+
+
+*********
+Problem 2
+*********
+
+A.
+  Child: 18
+  Parent: 16
+
+B. 
+  The parent line might come before the child line.  The values would stay the
+  same.
+
+C.
+  No, global_x is wiped away by exec, so the line is Child: 0 instead of
+  Child: 18.  Unless it is initialized, randomly, to 18.  Which it shouldn't
+  be.
+
+
+*********
+Problem 3
+*********
+
+A.
+  1. 16*32 + 64*32 = 2560
+  2. 64*32 = 2048
+  3. 16*32 = 512
+  4. (56*32)/(16*32 + 64*32) = 1792/2560 = 7/10
+
+B.
+  1. 64*32 = 2048
+  2. 64*32 = 2048
+  3. 0
+  4. (56*32)/(64*32) = 1792/2048 = 7/8
+
+
+*********
+Problem 4
+*********
+
+A. 
+  a. 1024
+  b. 1024
+  c. 1024
+  d. 4 MB + 4 KB
+
+B.
+  a. 2^20 = 1 048 576
+  b. 4 MB
+
+C.
+  Because memory usage in most programs is sparse, a full 2-level page table
+  is rare.  Usually only a small part of memory is mapped in, and in this case
+  a 2-level page table uses less space.
+ 
+*********
+Problem 5
+*********
+
+A. -------------------
+   |   VA   |   PA   |
+   |-----------------|
+   | 0x7E85 | 0x9585 |
+   |-----------------|
+   | 0xD301 | ------ |
+   |-----------------|
+   | 0x4C20 | 0x3020 |
+   |-----------------|
+   | 0xD040 | ------ |
+   |-----------------|
+   | ------ | 0x5830 |
+   -------------------
+
+
+*********
+Problem 6
+*********
+
+A. ---------------------------------------------------------------
+   | File   | Symbol | Strength/scope | Value      | ELF section |
+   |-------------------------------------------------------------|
+   |        |   x    |  strong global |     5      |    .data    |
+   |        |----------------------------------------------------|
+   |        |   y    |  weak global   |     -      |    .data    |
+   | main.o |----------------------------------------------------|
+   |        |   z    |  local         |     3      |    .data    |
+   |        |----------------------------------------------------|
+   |        |  main  |  strong global |     -      |    .text    |
+   |-------------------------------------------------------------|
+   |        |   x    |  weak global   |     -      |    .data    |
+   |        |----------------------------------------------------|
+   | foo.o  |   y    |  strong global | 0x12345678 |    .data    |
+   |        |----------------------------------------------------|
+   |        |   z    |  strong global |     -      |    .text    |
+   ---------------------------------------------------------------
+
+
+*********
+Problem 7
+*********
+
+A. ABBCBCD
