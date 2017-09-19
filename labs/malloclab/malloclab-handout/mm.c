@@ -4,6 +4,7 @@
  * 
  *            Name  : Vincent Lee
  *          userID  : ihalbmond@gmail.com
+ *          Detail  : http://ihalbmond.com/2016/12/28/How-to-get-full-points-on-malloc-lab/
  *
  *
  *
