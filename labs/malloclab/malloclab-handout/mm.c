@@ -318,7 +318,7 @@ static inline void *mem_get_brk()
 }
 
 
-#define INCREMENT    0x2c0
+#define INCREMENT    0x100
 #define VBRK_LIMIT   0x800010000
 
 static inline void mem_request(size_t size)
