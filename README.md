@@ -98,3 +98,6 @@ A: 用SSH连接: `linux> ssh –p xx22 student-id@ics9.pku.edu.cn`
 
 + http://wdxtub.com/2016/04/16/thick-csapp-lab-0/
 
+### at last
+
+#### 喜欢的朋友请star　作为对颈椎病老年人的垂怜
