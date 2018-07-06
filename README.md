@@ -1,4 +1,4 @@
-# CS:APP！ 从入门到\_\_\_\_\_
+# Introduction to Computer Systems
 
 ### Overview
 
@@ -10,7 +10,7 @@
   - 往年作业
   - `CSAPP1e-solution-manual`
     - CSAPP Edition 1 官方manual
-    - 虽说是官方，其中也有不少错解
+    - 虽说是官方manual，也存在不少错解
   - `CSAPP-solution-Vincent-Lee`
     - CSAPP solution by me
     - 前半部分为 CSAPP Edition 2 solution，后半部分为CSAPP Edition 3 solution
@@ -18,11 +18,10 @@
     - 有疑问请联系 ihalbmond@gmail.com
 + `/labs/ `
   + 因为沉迷刷榜，当时有一半的lab刷到了rank 1
-  + ~~代码十分混乱，以后回来填坑整理~~
 + `/notes/`
   + 笔记
 + `/audio-lectures/`
-  + 2016年下半学期课堂录音，配合课件食用。感谢森聚分享！
+  + 2016年下半学期课堂录音，配合课件食用。感谢森聚分享。
 
 ### FAQ
 
@@ -33,8 +32,6 @@ A: In a nutshell,  Skim the book first, then pursue deeper comprehension.
 Q: 如何阅读书本？
 
 A: 相比书本，确保理解课件的所有细节更加重要。一言以蔽之，首先粗略地浏览全书，再一遍遍加深阅读深度。中文版的确存在不少令人胃疼的翻译，如c语言中的 'switch' 被翻译成 ''开关''。建议配合英文书本/课件食用。
-
-![understand](image/understand.jpg)
 
 
 
@@ -85,19 +82,3 @@ A: 用SSH连接: `linux> ssh –p xx22 student-id@ics9.pku.edu.cn`
 
 + [Web Aside](http://csapp.cs.cmu.edu/3e/waside.html)
   + 书中的web aside 也可以在CS:APP官网上找到
-
-
-
-### Some unofficial Resources
-
-+ All in all, 最重要的当然是善用Google啦！
-
-  ![Google](image/Google.jpg)
-
-+ http://wdxtub.com/2016/04/16/thin-csapp-0/
-
-+ http://wdxtub.com/2016/04/16/thick-csapp-lab-0/
-
-### at last
-
-#### 喜欢的朋友请star　作为对颈椎病老年人的垂怜
